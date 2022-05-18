@@ -20,7 +20,7 @@ for(const row of rows) {
         title: row.title,
         link: row.source_url,
         description: row.abstract,
-        date: row.show_time,
+        date: new Date(),
     });
 }
 
