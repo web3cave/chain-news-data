@@ -7,20 +7,20 @@ const filename = Deno.args[0]; // Same name as downloaded_filename
 const json = await readJSON(filename);
 
 const myFeed = new Feed({
-    title: "Dao Tools RSS",
-    description: "A DAO Tools list.",
-    link: "https://web3cave.github.io/flat-data-template/data.xml",
+    title: "链闻精选",
+    description: "链闻快讯及文章精选",
+    link: "",
     updated: new Date()
 });
 
-const rows = json.rows
+const rows = json.data.list
 console.log(rows)
 for(const row of rows) {
     myFeed.addItem({
-        title: row.name,
-        link: row.twitter,
-        description: row.docs,
-        date: new Date(),
+        title: row.title,
+        link: row.source_url,
+        description: row.abstract,
+        date: row.show_time,
     });
 }
 
